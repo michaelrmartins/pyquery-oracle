@@ -18,6 +18,11 @@ query = (fileData)
 
 # execução da query
 cursor.execute(query)
+#columns = [col[0] for col in cursor.description]
+#cursor.rowfactory = lambda *args: dict(zip(columns, args))
+
+for column in cursor.description:
+    print (column[0])
 
 # recuperando os resultados
 results = cursor.fetchall()

@@ -16,8 +16,8 @@ where os.cd_setor = s.cd_setor
  AND si.cd_func = f.cd_func
  AND os.cd_os = si.cd_os
  AND os.cd_oficina = o.cd_oficina
- --AND rownum <=100
- AND hr_final between to_date ('11012023', 'DD/MM/RRRR') ANd TO_date ('01022023', 'DD/MM/RRRR') 
+ -- AND rownum <=100
+AND hr_final between to_date ('01012023', 'DD/MM/RRRR') ANd TO_date ('31122023', 'DD/MM/RRRR') 
  AND os.cd_oficina IN ('2') 
  
 ORDER BY cd_itsolicitacao_os DESC
