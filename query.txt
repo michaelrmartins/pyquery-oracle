@@ -1,0 +1,23 @@
+SELECT DISTINCT os.cd_os OS,
+ si.cd_itsolicitacao_os OS_INTERNA,
+ os.ds_servico MOTIVO_DA_OS,
+ si.ds_servico DESCRICAO_DO_SERVICO,
+ si.hr_final ULTIMA_ATUALIZACAO,
+ s.nm_setor SETOR,
+ si.cd_func
+
+FROM dbamv.solicitacao_os os,
+ dbamv.setor s,
+ dbamv.itsolicitacao_os si,
+ dbamv.funcionario f,
+ dbamv.oficina o
+
+where os.cd_setor = s.cd_setor
+ AND si.cd_func = f.cd_func
+ AND os.cd_os = si.cd_os
+ AND os.cd_oficina = o.cd_oficina
+ --AND rownum <=100
+ AND hr_final between to_date ('11012023', 'DD/MM/RRRR') ANd TO_date ('01022023', 'DD/MM/RRRR') 
+ AND os.cd_oficina IN ('2') 
+ 
+ORDER BY cd_itsolicitacao_os DESC
